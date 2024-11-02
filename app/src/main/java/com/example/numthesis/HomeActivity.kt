@@ -1,20 +1,42 @@
 package com.example.numthesis
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
+    private lateinit var bottomNavigationView: BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        replaceFragment(HomeFragment())
+
         setContentView(R.layout.activity_home)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        bottomNavigationView = findViewById(R.id.navigationButton)
+        bottomNavigationView.setOnItemSelectedListener {
+            when (it.itemId){
+                R.id.home_layouts -> {
+                    replaceFragment(HomeFragment())
+                    true
+                }
+                R.id.favorite_layouts -> {
+                    replaceFragment(FavoriteFragment())
+                    true
+                }
+
+                else -> {
+                    replaceFragment(HomeFragment())
+                    true
+                }
+            }
         }
+    }
+
+
+    private fun replaceFragment(fragment: Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragmentContainerView, fragment)
+        transaction.commit()
     }
 }

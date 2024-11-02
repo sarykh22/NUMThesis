@@ -5,36 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity"
-    android:background="@color/main_background"
     >
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentContainerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="76dp"
-        android:name="com.example.numthesis.HomeFragment">
-
-    </androidx.fragment.app.FragmentContainerView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/navigationButton"
-        android:layout_width="397dp"
-        android:layout_height="76dp"
-        android:background="@drawable/round_conner"
-        app:itemActiveIndicatorStyle="@style/MaterialAlertDialog.Material3"
-        app:itemIconSize="40dp"
-        app:itemIconTint="@android:color/white"
-        app:itemTextAppearanceActive="@style/Animation.Design.BottomSheetDialog"
-        app:itemTextAppearanceInactive="@style/Animation.Design.BottomSheetDialog"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/fragmentContainerView"
-        app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/navigation_button"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="7dp">
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
